@@ -26,6 +26,13 @@ ENV QLC_DEPENDS="\
     libxcb-xinerama0 \
     bash" 
 
+#networking packages for macvlan and DHCP support
+ENV NETWORK_DEPENDS="\
+    isc-dhcp-client \
+    iproute2 \
+    iputils-ping \
+    net-tools" 
+
 RUN apt-get update && apt-get upgrade -y
 RUN apt-get install -y ${QLC_DEPENDS} 
 RUN apt-get clean
