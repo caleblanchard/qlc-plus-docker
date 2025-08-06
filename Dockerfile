@@ -21,6 +21,7 @@ ENV QLC_DEPENDS="\
     libqt5script5 \
     libqt5widgets5 \
     libqt5serialport5 \
+    libqt5websockets5 \
     libusb-1.0-0 \
     libxcb-cursor0 \
     libxcb-xinerama0 \
