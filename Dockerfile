@@ -24,10 +24,17 @@ ENV QLC_DEPENDS="\
     libusb-1.0-0 \
     libxcb-cursor0 \
     libxcb-xinerama0 \
-    bash" 
+    bash"
+
+#networking packages for macvlan and DHCP support
+ENV NETWORK_DEPENDS="\
+    dhcp-client \
+    iproute2 \
+    iputils-ping \
+    net-tools" 
 
 RUN apt-get update && apt-get upgrade -y
-RUN apt-get install -y ${QLC_DEPENDS} 
+RUN apt-get install -y ${QLC_DEPENDS} ${NETWORK_DEPENDS}
 RUN apt-get clean
 
 #download and install QLC+ Version 4.13.1
