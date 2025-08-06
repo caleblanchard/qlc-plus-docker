@@ -45,7 +45,7 @@ RUN apt-get install -y ${QLC_DEPENDS} ${NETWORK_DEPENDS}
 RUN apt-get clean
 
 #download and install QLC+ Version 4.13.1
-ARG QLC_VERSION=4.13.1
+ARG QLC_VERSION=4.14.3
 ADD https://www.qlcplus.org/downloads/${QLC_VERSION}/qlcplus_${QLC_VERSION}_amd64.deb qlcplus.deb
 
 RUN dpkg -i qlcplus.deb
