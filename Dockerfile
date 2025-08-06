@@ -10,21 +10,21 @@ COPY qtexport.sh /QLC/qt_export.sh
 
 #install all pckgs needed for QLC+
 ENV QLC_DEPENDS="\
-                libasound2 \
-                libfftw3-double3 \
-                libftdi1-2 \
-                libqt5core5a \
-                libqt5gui5 \
-                libqt5multimedia5 \
-                libqt5multimediawidgets5 \
-                libqt5network5 \
-                libqt5script5 \
-                libqt5widgets5 \
-                libqt5serialport5 \
-                libusb-1.0-0 \
-                libxcb-cursor0 \
-                libxcb-xinerama0 \
-                bash" 
+    libasound2 \
+    libfftw3-double3 \
+    libftdi1-2 \
+    libqt5core5a \
+    libqt5gui5 \
+    libqt5multimedia5 \
+    libqt5multimediawidgets5 \
+    libqt5network5 \
+    libqt5script5 \
+    libqt5widgets5 \
+    libqt5serialport5 \
+    libusb-1.0-0 \
+    libxcb-cursor0 \
+    libxcb-xinerama0 \
+    bash" 
 
 RUN apt-get update && apt-get upgrade -y
 RUN apt-get install -y ${QLC_DEPENDS} 
@@ -38,6 +38,13 @@ RUN dpkg -i qlcplus.deb
 
 #expose port for web interface
 EXPOSE 9999
+
+#expose OSC ports
+#OSC input ports (7700-7707 for universes 1-8)
+EXPOSE 7700-7707
+
+#OSC output ports (9000-9007 for universes 1-8) 
+EXPOSE 9000-9007
 
 #work volume to bind the project in
 VOLUME /QLC
