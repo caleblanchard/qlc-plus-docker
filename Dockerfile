@@ -21,6 +21,7 @@ ENV QLC_DEPENDS="\
     libqt5script5 \
     libqt5widgets5 \
     libqt5serialport5 \
+    libqt5websockets5 \
     libusb-1.0-0 \
     libxcb-cursor0 \
     libxcb-xinerama0 \
@@ -34,7 +35,7 @@ ENV NETWORK_DEPENDS="\
     net-tools" 
 
 RUN apt-get update && apt-get upgrade -y
-RUN apt-get install -y ${QLC_DEPENDS} 
+RUN apt-get install -y ${QLC_DEPENDS} ${NETWORK_DEPENDS} 
 RUN apt-get clean
 
 #download and install QLC+ Version 4.13.1
