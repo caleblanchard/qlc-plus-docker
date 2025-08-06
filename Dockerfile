@@ -33,6 +33,13 @@ ENV NETWORK_DEPENDS="\
     iputils-ping \
     net-tools" 
 
+#networking packages for macvlan and DHCP support
+ENV NETWORK_DEPENDS="\
+    isc-dhcp-client \
+    iproute2 \
+    iputils-ping \
+    net-tools" 
+
 RUN apt-get update && apt-get upgrade -y
 RUN apt-get install -y ${QLC_DEPENDS} ${NETWORK_DEPENDS}
 RUN apt-get clean
